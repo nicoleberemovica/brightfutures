@@ -1,0 +1,14 @@
+# Video files — host separately (Cloudinary, S3, YouTube, etc.)
+*.mp4
+*.mov
+*.avi
+*.webm
+
+# Claude agent config
+.claude/
+
+# macOS
+.DS_Store
+
+# Node (future-proofing)
+node_modules/

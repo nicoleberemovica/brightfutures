@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Futures — Refugee-Led Solar & Food Security in Northern Uganda</title>
+  <meta name="description" content="Bright Futures is a refugee-led initiative bringing solar energy, water infrastructure, and digital inclusion to communities in Northern Uganda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES — COLOR SYSTEM
+    ============================================ */
+    :root {
+      --color-bg:          #FBF7F0;
+      --color-bg-warm:     #F5EDE0;
+      --color-bg-card:     #FFFCF7;
+      --color-primary:     #2D2A26;
+      --color-accent:      #C4622D;
+      --color-accent-dark: #A34E22;
+      --color-accent-soft: #E8A882;
+      --color-accent-pale: #F5DDD0;
+      --color-muted:       #7A7068;
+      --color-border:      #E8DDD0;
+      --color-white:       #FFFFFF;
+      --color-gold:        #C99A5A;
+      --color-sage:        #7A9E7E;
+
+      --font-serif:  'Lora', Georgia, serif;
+      --font-sans:   'Plus Jakarta Sans', system-ui, sans-serif;
+
+      --radius-sm:   8px;
+      --radius-md:   16px;
+      --radius-lg:   24px;
+      --radius-xl:   40px;
+      --radius-full: 9999px;
+
+      --shadow-sm:  0 2px 8px rgba(45, 42, 38, 0.06);
+      --shadow-md:  0 4px 20px rgba(45, 42, 38, 0.10);
+      --shadow-lg:  0 12px 48px rgba(45, 42, 38, 0.14);
+
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img, video { max-width: 100%; display: block; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul { list-style: none; }
+
+    /* ============================================
+       SCROLL ANIMATION UTILITIES
+    ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================
+       TYPOGRAPHY SYSTEM
+    ============================================ */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      line-height: 1.2;
+      color: var(--color-primary);
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-weight: 500;
+    }
+
+    p {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: var(--color-muted);
+      line-height: 1.75;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition), color var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: scale(1.03) translateY(-1px);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: 0 4px 16px rgba(196, 98, 45, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-dark);
+      box-shadow: 0 8px 28px rgba(196, 98, 45, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.15);
+      color: var(--color-white);
+      border: 2px solid rgba(255,255,255,0.4);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ============================================
+       LAYOUT CONTAINERS
+    ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 80px);
+    }
+
+    .section {
+      padding: clamp(72px, 10vw, 140px) 0;
+    }
+
+    /* ============================================
+       STICKY DONATE BUTTON
+    ============================================ */
+    #sticky-donate {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    #sticky-donate.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    #sticky-donate .btn {
+      box-shadow: 0 8px 32px rgba(196, 98, 45, 0.5);
+      padding: 14px 24px;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(251, 247, 240, 0.95);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-sm);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-white);
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: color var(--transition);
+    }
+
+    .nav.scrolled .nav-logo {
+      color: var(--color-primary);
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color var(--transition);
+    }
+
+    .nav.scrolled .nav-links a {
+      color: var(--color-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-accent-soft);
+    }
+
+    .nav.scrolled .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav.scrolled .nav-hamburger span {
+      background: var(--color-primary);
+    }
+
+    /* Mobile nav overlay */
+    .nav-mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 16px;
+      right: 16px;
+      background: var(--color-bg-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-lg);
+      z-index: 99;
+      border-radius: var(--radius-lg);
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .nav-mobile-overlay.open {
+      display: flex;
+    }
+
+    .nav-mobile-overlay a {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      padding: 4px 0;
+    }
+
+    .nav-mobile-overlay a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        155deg,
+        #3D2B1F 0%,
+        #5C3D2A 30%,
+        #7A4E32 55%,
+        #C4622D 85%,
+        #D4733E 100%
+      );
+    }
+
+    .hero-blob-1 {
+      position: absolute;
+      top: -10%;
+      right: -8%;
+      width: clamp(360px, 55vw, 720px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-blob-2 {
+      position: absolute;
+      bottom: -15%;
+      left: -5%;
+      width: clamp(280px, 40vw, 560px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero h1 {
+      color: var(--color-white);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-accent-soft);
+    }
+
+    .hero-desc {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 40px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: bounceDown 2s ease-in-out infinite;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Photo placeholder boxes */
+    .photo-placeholder {
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.25);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      min-height: 280px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .photo-placeholder--light {
+      background: var(--color-bg-warm);
+      border-color: var(--color-border);
+      color: var(--color-muted);
+    }
+
+    /* ============================================
+       PROJECT DETAIL SECTION
+    ============================================ */
+    .project-detail {
+      background: var(--color-bg-warm);
+    }
+
+    .project-detail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .project-detail-text h2 {
+      margin-bottom: 20px;
+    }
+
+    .project-detail-text h2 em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .project-detail-text p {
+      margin-bottom: 16px;
+    }
+
+    .project-detail-text p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .project-status--active {
+      background: rgba(122, 158, 126, 0.15);
+      color: var(--color-sage);
+    }
+
+    .project-status--completed {
+      background: var(--color-accent-pale);
+      color: var(--color-accent-dark);
+    }
+
+    .project-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .project-status--active .project-status-dot {
+      background: var(--color-sage);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .project-status--completed .project-status-dot {
+      background: var(--color-accent-dark);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .project-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .project-images .photo-placeholder--light {
+      min-height: 180px;
+      border-radius: var(--radius-md);
+    }
+
+    .project-images .photo-placeholder--light:first-child {
+      grid-column: 1 / -1;
+      min-height: 220px;
+    }
+
+    /* ============================================
+       MISSION SECTION
+    ============================================ */
+    .mission {
+      background: var(--color-bg);
+    }
+
+    .mission-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: start;
+    }
+
+    .mission-left {
+      position: sticky;
+      top: 120px;
+    }
+
+    .mission-left h2 {
+      margin-bottom: 24px;
+    }
+
+    .mission-left h2 em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .mission-founders {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mission-signature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mission-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-accent-pale), var(--color-accent-soft));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .mission-avatar-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+    }
+
+    .mission-avatar-role {
+      font-size: 0.82rem;
+      color: var(--color-muted);
+    }
+
+    .mission-text p {
+      font-size: clamp(1.08rem, 1.6vw, 1.2rem);
+      color: var(--color-muted);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    .mission-text p:last-child { margin-bottom: 0; }
+
+    .mission-text strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .mission-callout {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: var(--color-accent-pale);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--color-accent);
+    }
+
+    .mission-callout p {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--color-accent-dark);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ============================================
+       IMPACT / STATS SECTION
+    ============================================ */
+    .impact {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .impact-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .impact-stat {
+      padding: 64px 48px;
+      text-align: center;
+      position: relative;
+      background: var(--color-primary);
+      transition: background var(--transition);
+    }
+
+    .impact-stat::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .impact-stat:last-child::after { display: none; }
+
+    .impact-stat:hover {
+      background: #3A3530;
+    }
+
+    .impact-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .impact-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--color-accent-soft);
+      line-height: 1;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .impact-label {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       COMPLETED PROJECT SECTION
+    ============================================ */
+    .completed-project {
+      background: var(--color-bg-warm);
+    }
+
+    .completed-project-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .completed-project-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .completed-project-header h2 {
+      margin-bottom: 16px;
+    }
+
+    .video-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 40px;
+      background: #000;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+
+    .completed-project-text {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .completed-project-text p {
+      font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .completed-project-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================
+       TESTIMONIAL SECTION
+    ============================================ */
+    .testimonial {
+      background: linear-gradient(
+        135deg,
+        #4A2E1A 0%,
+        #6B3D22 40%,
+        #8B4E2A 70%,
+        #C4622D 100%
+      );
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-serif);
+      font-size: clamp(100px, 20vw, 280px);
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.04em;
+    }
+
+    .testimonial-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-quote-mark {
+      font-family: var(--font-serif);
+      font-size: clamp(5rem, 12vw, 10rem);
+      line-height: 0.5;
+      color: var(--color-accent-soft);
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--color-white);
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-attribution {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--color-white);
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .testimonial-role {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .placeholder-note {
+      display: block;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      font-style: normal;
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================
+       SUPPORT / DONATE SECTION
+    ============================================ */
+    .support {
+      background: var(--color-bg);
+    }
+
+    .support-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .support-inner h2 {
+      margin-bottom: 20px;
+    }
+
+    .support-inner h2 em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .support-inner > p {
+      margin-bottom: 36px;
+    }
+
+    .support-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .support-share {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: var(--color-accent-pale);
+      border-radius: var(--radius-md);
+    }
+
+    .support-share p {
+      font-size: 0.95rem;
+      color: var(--color-accent-dark);
+      margin: 0;
+    }
+
+    /* ============================================
+       MOBILE RESPONSIVE
+    ============================================ */
+    @media (max-width: 960px) {
+      .nav-links,
+      .nav-cta .btn {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        justify-content: center;
+      }
+
+      .hero-visual .photo-placeholder {
+        max-width: 360px;
+        min-height: 220px;
+      }
+
+      .project-detail-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-left {
+        position: static;
+      }
+
+      .impact-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-stat::after {
+        right: 20%;
+        top: auto;
+        bottom: 0;
+        width: 60%;
+        height: 1px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-images {
+        grid-template-columns: 1fr;
+      }
+
+      .project-images .photo-placeholder--light:first-child {
+        grid-column: 1;
+      }
+
+      #sticky-donate {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .impact-stat {
+        padding: 48px 32px;
+      }
+
+      .support-share {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STICKY DONATE BUTTON -->
+  <div id="sticky-donate" aria-label="Quick donate">
+    <a href="#donate" class="btn btn-primary">Support Bright Fields</a>
+  </div>
+
+  <!-- ==========================================
+       NAVIGATION
+  =========================================== -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+
+        <a href="#" class="nav-logo" aria-label="Bright Futures home">
+          <span class="nav-logo-icon" aria-hidden="true">&#9728;</span>
+          Bright Futures
+        </a>
+
+        <div class="nav-links" role="menubar">
+          <a href="#bright-fields" role="menuitem">Bright Fields</a>
+          <a href="#our-story" role="menuitem">Our Story</a>
+          <a href="#impact" role="menuitem">Impact</a>
+          <a href="#bright-minds" role="menuitem">Bright Minds</a>
+        </div>
+
+        <div class="nav-cta">
+          <a href="#donate" class="btn btn-primary" aria-label="Support Bright Fields">Donate</a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false" id="hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-mobile-overlay" id="mobile-menu">
+      <a href="#bright-fields">Bright Fields</a>
+      <a href="#our-story">Our Story</a>
+      <a href="#impact">Impact</a>
+      <a href="#bright-minds">Bright Minds</a>
+      <a href="#donate">Donate</a>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO
+  =========================================== -->
+  <section class="hero" id="hero" aria-labelledby="hero-heading">
+
+    <!-- Organic SVG blobs -->
+    <svg class="hero-blob-1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path fill="rgba(255,255,255,1)" d="M 300 60 C 390 60 460 115 490 190 C 520 265 505 360 450 415 C 395 470 310 480 235 450 C 160 420 110 350 100 270 C 90 190 140 105 210 76 C 240 64 270 60 300 60 Z">
+        <animateTransform attributeName="transform" type="rotate" from="0 300 300" to="360 300 300" dur="60s" repeatCount="indefinite"/>
+      </path>
+    </svg>
+
+    <svg class="hero-blob-2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path fill="rgba(255,255,255,1)" d="M 250 60 C 325 60 390 105 420 170 C 450 235 440 315 400 370 C 360 425 290 455 220 440 C 150 425 90 370 70 300 C 50 230 70 150 120 100 C 160 60 205 55 250 60 Z">
+        <animateTransform attributeName="transform" type="rotate" from="360 250 250" to="0 250 250" dur="50s" repeatCount="indefinite"/>
+      </path>
+    </svg>
+
+    <div class="hero-dots" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <div class="hero-label fade-in">
+            <span aria-hidden="true">&#9728;</span>
+            Refugee-Led Initiative &nbsp;|&nbsp; Northern Uganda
+          </div>
+
+          <h1 id="hero-heading" class="fade-in fade-in-delay-1">
+            <em>Bright Fields</em> — Solar &amp; Water for Food Security
+          </h1>
+
+          <p class="hero-desc fade-in fade-in-delay-2">
+            Our second project brings solar-powered water pumps to a refugee community in Northern Uganda — enabling year-round irrigation, sustainable farming, and long-term food security.
+          </p>
+
+          <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="#donate" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
+              Support Bright Fields
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual fade-in fade-in-delay-4">
+          <div class="photo-placeholder">Photo placeholder — Bright Fields project</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- ==========================================
+       BRIGHT FIELDS — CURRENT PROJECT
+  =========================================== -->
+  <section class="project-detail section" id="bright-fields" aria-labelledby="bright-fields-heading">
+    <div class="container">
+      <div class="project-detail-inner">
+
+        <div class="project-detail-text fade-in">
+          <span class="project-status project-status--active">
+            <span class="project-status-dot"></span>
+            Current Project
+          </span>
+          <span class="section-label">Bright Fields</span>
+          <h2 id="bright-fields-heading">Solar energy &amp; water pumps for <em>irrigation &amp; food security</em></h2>
+          <p>
+            Bright Fields is bringing solar-powered water pump infrastructure to the same refugee community in Northern Uganda where our first project began. The goal: enable year-round irrigation so families can grow their own food and build lasting food security.
+          </p>
+          <p>
+            Many families in the settlement depend on rain-fed agriculture, leaving them vulnerable to drought and seasonal hunger. By installing solar panels connected to water pumps, we can provide reliable water access for community farming — reducing dependence on food aid and creating a path toward self-sufficiency.
+          </p>
+        </div>
+
+        <div class="project-images fade-in fade-in-delay-2">
+          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — community farmland</div>
+          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — solar panels</div>
+          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — water pump</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       OUR STORY / MISSION
+  =========================================== -->
+  <section class="mission section" id="our-story" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission-inner">
+
+        <div class="mission-left fade-in">
+          <span class="section-label">Our Story</span>
+          <h2 id="mission-heading">Built by the community, <em>for the community</em></h2>
+
+          <div class="mission-founders">
+            <div class="mission-signature">
+              <div class="mission-avatar" aria-hidden="true">A</div>
+              <div>
+                <div class="mission-avatar-name">Anyieth Philip Ayuen</div>
+                <div class="mission-avatar-role">Co-Founder &amp; Project Lead</div>
+              </div>
+            </div>
+            <div class="mission-signature">
+              <div class="mission-avatar" aria-hidden="true">N</div>
+              <div>
+                <div class="mission-avatar-name">Nicole Beremovica</div>
+                <div class="mission-avatar-role">Co-Founder</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-right">
+          <div class="mission-text fade-in fade-in-delay-2">
+            <p>
+              Bright Futures is led by <strong>Anyieth Philip Ayuen</strong>, who grew up in a refugee settlement in Northern Uganda. In 2019, Anyieth co-founded the <strong>Dongriin Foundation</strong>, a community-based organization dedicated to education and youth empowerment in the settlement.
+            </p>
+            <p>
+              Now a student at <strong>Columbia University's Climate School</strong>, Anyieth brings together firsthand knowledge of the community's needs with expertise in climate and sustainability — ensuring that every project is designed by and for the people it serves.
+            </p>
+            <p>
+              Together with <strong>Nicole Beremovica</strong>, Anyieth launched Bright Futures to expand on the Dongriin Foundation's work — bringing solar energy, digital access, and now sustainable agriculture to the refugee community that raised her.
+            </p>
+          </div>
+
+          <div class="mission-callout fade-in fade-in-delay-3">
+            <p>Bright Futures exists because the people closest to the problem are the best equipped to solve it. Every project starts with the community.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       IMPACT / STATS
+  =========================================== -->
+  <section class="impact" id="impact" aria-label="Our impact in numbers">
+    <div class="impact-inner">
+
+      <div class="impact-stat fade-in">
+        <span class="impact-icon" aria-hidden="true">&#9728;</span>
+        <span class="impact-number" data-target="1606" data-prefix="$" data-suffix="" aria-label="$1,606 raised">0</span>
+        <p class="impact-label">Raised from 52 donors for Bright Minds, Bright Lights</p>
+      </div>
+
+      <div class="impact-stat fade-in fade-in-delay-2">
+        <span class="impact-icon" aria-hidden="true">&#x1F4A1;</span>
+        <span class="impact-number" data-target="1" data-suffix="" aria-label="1 learning center powered">0</span>
+        <p class="impact-label">Learning Center Powered with Solar &amp; WiFi</p>
+      </div>
+
+      <div class="impact-stat fade-in fade-in-delay-4">
+        <span class="impact-icon" aria-hidden="true">&#x1F331;</span>
+        <span class="impact-number" data-target="2" data-suffix="" aria-label="2 projects launched">0</span>
+        <p class="impact-label">Community Projects — Bright Minds &amp; Bright Fields</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       BRIGHT MINDS, BRIGHT LIGHTS — COMPLETED PROJECT
+  =========================================== -->
+  <section class="completed-project section" id="bright-minds" aria-labelledby="bright-minds-heading">
+    <div class="container">
+      <div class="completed-project-inner">
+
+        <div class="completed-project-header fade-in">
+          <span class="project-status project-status--completed">
+            <span class="project-status-dot"></span>
+            Completed
+          </span>
+          <span class="section-label">Our First Project</span>
+          <h2 id="bright-minds-heading">Bright Minds, Bright Lights</h2>
+          <p>Solar panels and WiFi for the Dongriin Foundation learning center — removing barriers to digital inclusion in a refugee community.</p>
+        </div>
+
+        <div class="video-wrapper fade-in fade-in-delay-1">
+          <video controls preload="metadata" aria-label="Bright Minds, No Lights campaign video">
+            <source src="BRIGHT MINDS, NO LIGHTS CAMPAIGN.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="completed-project-text fade-in fade-in-delay-2">
+          <p>
+            <strong>Bright Minds, Bright Lights</strong> was our first campaign — raising $1,606 from 52 donors to install solar panels and WiFi at the Dongriin Foundation's learning center in a refugee settlement in Northern Uganda.
+          </p>
+          <p>
+            Before this project, students had no reliable electricity or internet access. Now, the learning center is powered by solar energy and connected to the internet — enabling access to online courses, scholarship applications, job opportunities, and the digital tools that open doors to the wider world.
+          </p>
+          <p>
+            This project was the proof of concept: a refugee-led initiative, funded by a global community, delivering real infrastructure to the people who need it. Bright Fields is the next chapter.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TESTIMONIALS
+  =========================================== -->
+  <section class="testimonial section" aria-label="Community voices">
+    <div class="testimonial-bg-text" aria-hidden="true">Hope</div>
+
+    <div class="container">
+      <div class="testimonial-inner fade-in">
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+
+        <blockquote>
+          <p class="testimonial-text">
+            Before the solar panels, we could only study when there was daylight. Now the learning center is open in the evenings too, and I can take online courses. It changed what I believe is possible for my future.
+          </p>
+          <footer class="testimonial-attribution">
+            <div class="testimonial-avatar" aria-hidden="true">&#x1F393;</div>
+            <div>
+              <div class="testimonial-name">Student at Dongriin Foundation</div>
+              <div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
+              <span class="placeholder-note">Placeholder — real testimonial to be added</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SUPPORT / DONATE
+  =========================================== -->
+  <section class="support section" id="donate" aria-labelledby="support-heading">
+    <div class="container">
+      <div class="support-inner fade-in">
+        <span class="section-label">Support Us</span>
+        <h2 id="support-heading">Help bring <em>Bright Fields</em> to life</h2>
+        <p>
+          Your donation goes directly to solar panel and water pump installation in a refugee community in Northern Uganda. Every contribution brings us closer to year-round food security for families who need it most.
+        </p>
+
+        <div class="support-actions">
+          <a href="#donate" class="btn btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">
+            Support Bright Fields
+          </a>
+        </div>
+
+        <div class="support-share">
+          <p>
+            <strong>Can't donate right now?</strong> Sharing our story helps just as much. Tell a friend, post on social media, or forward this page to someone who cares about refugee-led solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       JAVASCRIPT
+  =========================================== -->
+  <script>
+    // =============================================
+    // SCROLL FADE-IN via IntersectionObserver
+    // =============================================
+    (function () {
+      var fadeEls = document.querySelectorAll('.fade-in');
+
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      fadeEls.forEach(function (el) { io.observe(el); });
+    })();
+
+    // =============================================
+    // ANIMATED COUNTERS
+    // =============================================
+    (function () {
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var prefix = el.getAttribute('data-prefix') || '';
+        var duration = 1800;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var elapsed = timestamp - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          var value = Math.round(easeOutCubic(progress) * target);
+
+          if (target >= 1000) {
+            el.textContent = prefix + value.toLocaleString() + suffix;
+          } else {
+            el.textContent = prefix + value + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var counterEls = document.querySelectorAll('.impact-number');
+
+      var counterIO = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterIO.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      counterEls.forEach(function (el) { counterIO.observe(el); });
+    })();
+
+    // =============================================
+    // STICKY NAV + STICKY DONATE BUTTON
+    // =============================================
+    (function () {
+      var nav = document.getElementById('main-nav');
+      var heroSection = document.getElementById('hero');
+      var stickyDonate = document.getElementById('sticky-donate');
+
+      var heroIO = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              nav.classList.add('scrolled');
+              stickyDonate.classList.add('visible');
+            } else {
+              nav.classList.remove('scrolled');
+              stickyDonate.classList.remove('visible');
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+
+      heroIO.observe(heroSection);
+    })();
+
+    // =============================================
+    // MOBILE HAMBURGER NAV
+    // =============================================
+    (function () {
+      var btn = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (!btn || !mobileMenu) return;
+
+      var isOpen = false;
+
+      function toggleMenu() {
+        isOpen = !isOpen;
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
+          mobileMenu.classList.add('open');
+        } else {
+          mobileMenu.classList.remove('open');
+        }
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          isOpen = false;
+          btn.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
