@@ -1,5 +1,5 @@
 # Bright Futures
-website access: https://brightfutures-gilt.vercel.app/
+DRAFT website access: https://brightfutures-gilt.vercel.app/
 
 **A refugee-led initiative bringing solar energy, clean water, and digital access to Northern Uganda.**
 
