@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bright Futures — Refugee-Led Solar & Food Security in Northern Uganda</title>
-  <meta name="description" content="Bright Futures is a refugee-led initiative bringing solar energy, water infrastructure, and digital inclusion to communities in Northern Uganda." />
+  <title>Bright Solar Futures — Refugee-Led Solar &amp; Clean Energy in Northern Uganda</title>
+  <meta name="description" content="Bright Solar Futures is a refugee-led initiative bringing solar energy, clean water infrastructure, and digital inclusion to communities in Northern Uganda." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -105,18 +106,18 @@
     }
 
     h1 {
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-size: clamp(2.2rem, 5vw, 4rem);
       font-weight: 600;
       letter-spacing: -0.02em;
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
       font-weight: 600;
     }
 
     h3 {
-      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       font-weight: 500;
     }
 
@@ -495,6 +496,15 @@
       align-items: center;
     }
 
+    .hero-image {
+      width: 100%;
+      max-width: 480px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+
     .hero-scroll-hint {
       position: absolute;
       bottom: 32px;
@@ -627,7 +637,7 @@
 
     .project-images .photo-placeholder--light:first-child {
       grid-column: 1 / -1;
-      min-height: 220px;
+      min-height: 280px;
     }
 
     /* ============================================
@@ -708,6 +718,16 @@
       font-weight: 600;
     }
 
+    .mission-text a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .mission-text a:hover {
+      color: var(--color-accent-dark);
+    }
+
     .mission-callout {
       margin-top: 40px;
       padding: 28px 32px;
@@ -726,6 +746,190 @@
     }
 
     /* ============================================
+       TEAM SECTION
+    ============================================ */
+    .team {
+      background: var(--color-bg-warm);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .team-header h2 {
+      margin-bottom: 16px;
+    }
+
+    .team-header h2 em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .team-header p {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .team-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .team-photo-placeholder {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, var(--color-accent-pale), var(--color-bg-warm));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--color-border);
+      text-align: center;
+      padding: 12px;
+    }
+
+    .team-card-body {
+      padding: 20px 22px 24px;
+    }
+
+    .team-card-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .team-card-role {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 12px;
+    }
+
+    .team-card-bio {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    /* Partner subsection */
+    .team-partner-section {
+      border-top: 1px solid var(--color-border);
+      padding-top: 48px;
+    }
+
+    .team-partner-label {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .team-partner-label p {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin: 0;
+    }
+
+    .team-partner-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+
+    .team-partner-photo {
+      background: linear-gradient(135deg, var(--color-accent-pale), var(--color-bg-warm));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 24px;
+      text-align: center;
+      border-right: 1px solid var(--color-border);
+      letter-spacing: 0.04em;
+    }
+
+    .team-partner-body {
+      padding: 28px 32px;
+    }
+
+    .team-partner-body h3 {
+      margin-bottom: 4px;
+    }
+
+    .team-partner-body h3 a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .team-partner-body h3 a:hover {
+      color: var(--color-accent);
+    }
+
+    .team-partner-role {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 14px;
+    }
+
+    .team-partner-body p {
+      font-size: 0.92rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .team-partner-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .team-partner-body a.partner-link {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .team-partner-body a.partner-link:hover {
+      color: var(--color-accent-dark);
+    }
+
+    /* ============================================
        IMPACT / STATS SECTION
     ============================================ */
     .impact {
@@ -735,7 +939,9 @@
 
     .impact-inner {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
     .impact-stat {
@@ -745,18 +951,6 @@
       background: var(--color-primary);
       transition: background var(--transition);
     }
-
-    .impact-stat::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 20%;
-      height: 60%;
-      width: 1px;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .impact-stat:last-child::after { display: none; }
 
     .impact-stat:hover {
       background: #3A3530;
@@ -782,7 +976,7 @@
       font-size: 1rem;
       color: rgba(255,255,255,0.65);
       font-weight: 400;
-      max-width: 200px;
+      max-width: 280px;
       margin: 0 auto;
     }
 
@@ -811,8 +1005,9 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
       background: #000;
+      max-width: 50%;
     }
 
     .video-wrapper {
@@ -831,6 +1026,22 @@
     display: block;
   }
 
+    /* Bright Minds photo grid */
+    .bright-minds-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .bright-minds-photos img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
     .completed-project-text {
       max-width: 720px;
       margin: 0 auto;
@@ -844,6 +1055,21 @@
 
     .completed-project-text p:last-child {
       margin-bottom: 0;
+    }
+
+    .completed-project-text a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .completed-project-text a:hover {
+      color: var(--color-accent-dark);
+    }
+
+    .completed-project-cta {
+      text-align: center;
+      margin-top: 32px;
     }
 
     /* ============================================
@@ -876,63 +1102,85 @@
       letter-spacing: -0.04em;
     }
 
-    .testimonial-inner {
+    .testimonial-section-header {
+      text-align: center;
+      margin-bottom: 56px;
       position: relative;
       z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
+    }
+
+    .testimonial-section-header h2 {
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .testimonials-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
     }
 
     .testimonial-quote-mark {
       font-family: var(--font-serif);
-      font-size: clamp(5rem, 12vw, 10rem);
-      line-height: 0.5;
+      font-size: 4rem;
+      line-height: 0.7;
       color: var(--color-accent-soft);
-      opacity: 0.5;
+      opacity: 0.6;
       display: block;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .testimonial-text {
       font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
       font-weight: 500;
       font-style: italic;
       color: var(--color-white);
-      line-height: 1.5;
-      margin-bottom: 40px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      flex: 1;
     }
 
     .testimonial-attribution {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .testimonial-avatar {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--radius-full);
       background: rgba(255,255,255,0.15);
-      border: 3px solid rgba(255,255,255,0.3);
+      border: 2px solid rgba(255,255,255,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      flex-shrink: 0;
     }
 
     .testimonial-name {
       font-weight: 700;
       color: var(--color-white);
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-align: left;
     }
 
     .testimonial-role {
       color: rgba(255,255,255,0.6);
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       text-align: left;
     }
 
@@ -941,7 +1189,7 @@
       font-size: 0.72rem;
       color: rgba(255,255,255,0.35);
       font-style: normal;
-      margin-top: 6px;
+      margin-top: 4px;
       letter-spacing: 0.04em;
     }
 
@@ -1024,9 +1272,10 @@
         justify-content: center;
       }
 
-      .hero-visual .photo-placeholder {
+      .hero-image {
         max-width: 360px;
-        min-height: 220px;
+        height: 260px;
+        margin: 0 auto;
       }
 
       .project-detail-inner {
@@ -1045,12 +1294,23 @@
         grid-template-columns: 1fr;
       }
 
-      .impact-stat::after {
-        right: 20%;
-        top: auto;
-        bottom: 0;
-        width: 60%;
-        height: 1px;
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-partner-card {
+        grid-template-columns: 1fr;
+      }
+
+      .team-partner-photo {
+        height: 140px;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
 
@@ -1075,6 +1335,18 @@
       .support-share {
         padding: 24px 20px;
       }
+
+      .video-wrapper {
+        max-width: 100%;
+      }
+
+      .bright-minds-photos {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -1082,7 +1354,7 @@
 <body>
 
   <!-- STICKY DONATE BUTTON -->
-  <div id="sticky-donate" aria-label="Quick donate">
+  <div id="sticky-donate" aria-label="Quick donate for Bright Solar Futures">
     <a href="#donate" class="btn btn-primary">Support Bright Fields</a>
   </div>
 
@@ -1093,15 +1365,15 @@
     <div class="container">
       <div class="nav-inner">
 
-        <a href="#" class="nav-logo" aria-label="Bright Futures home">
+        <a href="#" class="nav-logo" aria-label="Bright Solar Futures home">
           <span class="nav-logo-icon" aria-hidden="true">&#9728;</span>
-          Bright Futures
+          Bright Solar Futures
         </a>
 
         <div class="nav-links" role="menubar">
           <a href="#bright-fields" role="menuitem">Bright Fields</a>
           <a href="#our-story" role="menuitem">Our Story</a>
-          <a href="#impact" role="menuitem">Impact</a>
+          <a href="#our-team" role="menuitem">Our Team</a>
           <a href="#bright-minds" role="menuitem">Bright Minds</a>
         </div>
 
@@ -1122,7 +1394,7 @@
     <div class="nav-mobile-overlay" id="mobile-menu">
       <a href="#bright-fields">Bright Fields</a>
       <a href="#our-story">Our Story</a>
-      <a href="#impact">Impact</a>
+      <a href="#our-team">Our Team</a>
       <a href="#bright-minds">Bright Minds</a>
       <a href="#donate">Donate</a>
     </div>
@@ -1158,11 +1430,11 @@
           </div>
 
           <h1 id="hero-heading" class="fade-in fade-in-delay-1">
-            <em>Bright Fields</em> — Solar &amp; Water for Food Security
+            Clean Energy for <em>Refugee Communities</em>
           </h1>
 
           <p class="hero-desc fade-in fade-in-delay-2">
-            Our second project brings solar-powered water pumps to a refugee community in Northern Uganda — enabling year-round irrigation, sustainable farming, and long-term food security.
+            Bright Solar Futures is a refugee-led initiative bringing solar energy and clean water infrastructure to communities in Northern Uganda — empowering families to farm, learn, and build a future on their own terms.
           </p>
 
           <div class="hero-actions fade-in fade-in-delay-3">
@@ -1173,7 +1445,11 @@
         </div>
 
         <div class="hero-visual fade-in fade-in-delay-4">
-          <div class="photo-placeholder">Photo placeholder — Bright Fields project</div>
+          <img
+            src="Uganda solar water.jpg"
+            alt="Solar water infrastructure in Uganda"
+            class="hero-image"
+          />
         </div>
 
       </div>
@@ -1210,9 +1486,7 @@
         </div>
 
         <div class="project-images fade-in fade-in-delay-2">
-          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — community farmland</div>
-          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — solar panels</div>
-          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — water pump</div>
+          <div class="photo-placeholder photo-placeholder--light">Photo placeholder — Bright Fields (coming soon)</div>
         </div>
 
       </div>
@@ -1251,22 +1525,92 @@
         <div class="mission-right">
           <div class="mission-text fade-in fade-in-delay-2">
             <p>
-              Bright Futures is led by <strong>Anyieth Philip Ayuen</strong>, who grew up in a refugee settlement in Northern Uganda. In 2019, Anyieth co-founded the <strong>Dongriin Foundation</strong>, a community-based organization dedicated to education and youth empowerment in the settlement.
+              Bright Solar Futures was founded in close partnership with the <a href="https://dongriinfoundation.org/" target="_blank" rel="noopener">Dongriin Foundation</a> — a community-based organization established in 2019 by <strong>Anyieth Philip Ayuen</strong> in a refugee settlement in Northern Uganda. The Dongriin Foundation is not just a partner: it is the heart of this work, providing the on-the-ground implementation, deep community trust, and institutional knowledge that make every project possible.
             </p>
             <p>
-              Now a student at <strong>Columbia University's Climate School</strong>, Anyieth brings together firsthand knowledge of the community's needs with expertise in climate and sustainability — ensuring that every project is designed by and for the people it serves.
+              Anyieth grew up in the settlement and now studies at <strong>Columbia University's Climate School</strong>, bringing together firsthand knowledge of the community's needs with expertise in climate and sustainability. Together with <strong>Nicole Beremovica</strong>, she launched Bright Solar Futures to expand on the Dongriin Foundation's mission — delivering solar energy, digital access, and sustainable agriculture infrastructure to the community that raised her.
             </p>
             <p>
-              Together with <strong>Nicole Beremovica</strong>, Anyieth launched Bright Futures to expand on the Dongriin Foundation's work — bringing solar energy, digital access, and now sustainable agriculture to the refugee community that raised her.
+              Our team has grown to include <strong>Taylor Ko</strong> and <strong>Malang</strong>, who bring additional skills and dedication to expanding our reach and impact. Together, we believe that the people closest to the problem are best equipped to solve it — and that solar energy is a foundation for everything that follows.
             </p>
           </div>
 
           <div class="mission-callout fade-in fade-in-delay-3">
-            <p>Bright Futures exists because the people closest to the problem are the best equipped to solve it. Every project starts with the community.</p>
+            <p>Bright Solar Futures exists because the people closest to the problem are the best equipped to solve it. Every project starts with the community.</p>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       OUR TEAM
+  =========================================== -->
+  <section class="team section" id="our-team" aria-labelledby="team-heading">
+    <div class="container">
+
+      <div class="team-header fade-in">
+        <span class="section-label">Our Team</span>
+        <h2 id="team-heading">Meet the people behind <em>Bright Solar Futures</em></h2>
+        <p>A team rooted in community, united by a shared belief in refugee-led solutions.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card fade-in">
+          <div class="team-photo-placeholder">Photo placeholder</div>
+          <div class="team-card-body">
+            <div class="team-card-name">Anyieth Philip Ayuen</div>
+            <div class="team-card-role">Co-Founder &amp; Project Lead</div>
+            <p class="team-card-bio">Description placeholder — Anyieth's background, role, and connection to the community.</p>
+          </div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-1">
+          <div class="team-photo-placeholder">Photo placeholder</div>
+          <div class="team-card-body">
+            <div class="team-card-name">Nicole Beremovica</div>
+            <div class="team-card-role">Co-Founder</div>
+            <p class="team-card-bio">Description placeholder — Nicole's background and contributions to Bright Solar Futures.</p>
+          </div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-2">
+          <div class="team-photo-placeholder">Photo placeholder</div>
+          <div class="team-card-body">
+            <div class="team-card-name">Taylor Ko</div>
+            <div class="team-card-role">Title placeholder</div>
+            <p class="team-card-bio">Description placeholder — Taylor's role and contributions to the team.</p>
+          </div>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-3">
+          <div class="team-photo-placeholder">Photo placeholder</div>
+          <div class="team-card-body">
+            <div class="team-card-name">Malang</div>
+            <div class="team-card-role">Title placeholder</div>
+            <p class="team-card-bio">Description placeholder — Malang's role and contributions to the team.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="team-partner-section fade-in">
+        <div class="team-partner-label">
+          <p>Implementation Partner</p>
+        </div>
+        <div class="team-partner-card">
+          <div class="team-partner-photo">Logo / photo placeholder</div>
+          <div class="team-partner-body">
+            <h3><a href="https://dongriinfoundation.org/" target="_blank" rel="noopener">Dongriin Foundation</a></h3>
+            <div class="team-partner-role">Implementation Partner</div>
+            <p>The Dongriin Foundation is a community-based organization in a refugee settlement in Northern Uganda, dedicated to education, youth empowerment, and sustainable development. They are the on-the-ground partner making every Bright Solar Futures project possible.</p>
+            <a href="https://dongriinfoundation.org/" target="_blank" rel="noopener" class="partner-link">Visit dongriinfoundation.org &#8599;</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1280,18 +1624,6 @@
         <span class="impact-icon" aria-hidden="true">&#9728;</span>
         <span class="impact-number" data-target="1606" data-prefix="$" data-suffix="" aria-label="$1,606 raised">0</span>
         <p class="impact-label">Raised from 52 donors for Bright Minds, Bright Lights</p>
-      </div>
-
-      <div class="impact-stat fade-in fade-in-delay-2">
-        <span class="impact-icon" aria-hidden="true">&#x1F4A1;</span>
-        <span class="impact-number" data-target="1" data-suffix="" aria-label="1 learning center powered">0</span>
-        <p class="impact-label">Learning Center Powered with Solar &amp; WiFi</p>
-      </div>
-
-      <div class="impact-stat fade-in fade-in-delay-4">
-        <span class="impact-icon" aria-hidden="true">&#x1F331;</span>
-        <span class="impact-number" data-target="2" data-suffix="" aria-label="2 projects launched">0</span>
-        <p class="impact-label">Community Projects — Bright Minds &amp; Bright Fields</p>
       </div>
 
     </div>
@@ -1311,7 +1643,7 @@
           </span>
           <span class="section-label">Our First Project</span>
           <h2 id="bright-minds-heading">Bright Minds, Bright Lights</h2>
-          <p>Solar panels and WiFi for the Dongriin Foundation learning center — removing barriers to digital inclusion in a refugee community.</p>
+          <p>Solar panels and WiFi for the <a href="https://dongriinfoundation.org/" target="_blank" rel="noopener">Dongriin Foundation</a> learning center — removing barriers to digital inclusion in a refugee community.</p>
         </div>
 
         <div class="video-wrapper fade-in fade-in-delay-1">
@@ -1321,9 +1653,15 @@
           </video>
         </div>
 
-        <div class="completed-project-text fade-in fade-in-delay-2">
+        <div class="bright-minds-photos fade-in fade-in-delay-2">
+          <img src="Solar installation -01.jpg" alt="Solar panel installation at Dongriin Foundation" />
+          <img src="Installation -Photo 002.jpg" alt="Installation in progress at the learning center" />
+          <img src="Wiring and installation - office.jpg" alt="Wiring and electrical installation in the office" />
+        </div>
+
+        <div class="completed-project-text fade-in fade-in-delay-3">
           <p>
-            <strong>Bright Minds, Bright Lights</strong> was our first campaign — raising $1,606 from 52 donors to install solar panels and WiFi at the Dongriin Foundation's learning center in a refugee settlement in Northern Uganda.
+            <strong>Bright Minds, Bright Lights</strong> was our first campaign — raising $1,606 from 52 donors to install solar panels and WiFi at the <a href="https://dongriinfoundation.org/" target="_blank" rel="noopener">Dongriin Foundation</a>'s learning center in a refugee settlement in Northern Uganda.
           </p>
           <p>
             Before this project, students had no reliable electricity or internet access. Now, the learning center is powered by solar energy and connected to the internet — enabling access to online courses, scholarship applications, job opportunities, and the digital tools that open doors to the wider world.
@@ -1331,6 +1669,17 @@
           <p>
             This project was the proof of concept: a refugee-led initiative, funded by a global community, delivering real infrastructure to the people who need it. Bright Fields is the next chapter.
           </p>
+        </div>
+
+        <div class="completed-project-cta fade-in fade-in-delay-4">
+          <a
+            href="https://www.gofundme.com/f/power-up-education-at-dongriin-foundation"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary"
+          >
+            View GoFundMe Campaign &#8599;
+          </a>
         </div>
 
       </div>
@@ -1344,22 +1693,64 @@
     <div class="testimonial-bg-text" aria-hidden="true">Hope</div>
 
     <div class="container">
-      <div class="testimonial-inner fade-in">
-        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+      <div class="testimonial-section-header fade-in">
+        <span class="section-label" style="color: var(--color-accent-soft);">Community Voices</span>
+        <h2>What people are saying</h2>
+      </div>
 
-        <blockquote>
-          <p class="testimonial-text">
-            Before the solar panels, we could only study when there was daylight. Now the learning center is open in the evenings too, and I can take online courses. It changed what I believe is possible for my future.
-          </p>
-          <footer class="testimonial-attribution">
-            <div class="testimonial-avatar" aria-hidden="true">&#x1F393;</div>
-            <div>
-              <div class="testimonial-name">Student at Dongriin Foundation</div>
-              <div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
-              <span class="placeholder-note">Placeholder — real testimonial to be added</span>
-            </div>
-          </footer>
-        </blockquote>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>
+            <p class="testimonial-text">
+              Before the solar panels, we could only study when there was daylight. Now the learning center is open in the evenings too, and I can take online courses. It changed what I believe is possible for my future.
+            </p>
+            <footer class="testimonial-attribution">
+              <div class="testimonial-avatar" aria-hidden="true">&#x1F393;</div>
+              <div>
+                <div class="testimonial-name">Student at Dongriin Foundation</div>
+                <div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
+                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="testimonial-card fade-in fade-in-delay-2">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>
+            <p class="testimonial-text">
+              This is what community-led change looks like. The people who understand our needs are the ones building the solutions. Solar energy here means our children have a real shot at the future.
+            </p>
+            <footer class="testimonial-attribution">
+              <div class="testimonial-avatar" aria-hidden="true">&#x1F331;</div>
+              <div>
+                <div class="testimonial-name">Community Member, Northern Uganda</div>
+                <div class="testimonial-role">Refugee settlement resident</div>
+                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="testimonial-card fade-in fade-in-delay-4">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>
+            <p class="testimonial-text">
+              Donating felt different because I knew the project came from inside the community itself. These aren't outsiders deciding what's needed — this is the community building its own future.
+            </p>
+            <footer class="testimonial-attribution">
+              <div class="testimonial-avatar" aria-hidden="true">&#x2764;</div>
+              <div>
+                <div class="testimonial-name">Donor, Bright Minds Campaign</div>
+                <div class="testimonial-role">Supporter from the diaspora</div>
+                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+
       </div>
     </div>
   </section>
