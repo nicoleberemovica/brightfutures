@@ -7,7 +7,7 @@ DRAFT website access: https://brightfutures-gilt.vercel.app/
 
 ## About This Project
 
-Bright Futures was founded by community members from Northern Uganda to solve real problems from the inside out. Every project starts with the people closest to the challenge.
+Bright Futures was founded by a community member from Northern Uganda and his friends to solve real problems from the inside out. Every project starts with the people closest to the challenge.
 
 **Our two projects so far:**
 
