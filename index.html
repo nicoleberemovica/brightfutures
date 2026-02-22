@@ -815,10 +815,21 @@
       background: #000;
     }
 
-    .video-wrapper video {
-      width: 40%;
-      display: block;
+    .video-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 40px;
+      background: #000;
+      max-width: 500px;  /* Add this to constrain the wrapper */
+      margin-left: auto;
+      margin-right: auto;
     }
+    
+  .video-wrapper video {
+    width: 100%;  /* Change this to 100% so it fills the wrapper */
+    display: block;
+  }
 
     .completed-project-text {
       max-width: 720px;
