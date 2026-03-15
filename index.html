@@ -1080,451 +1080,6 @@
       margin-top: 32px;
     }
 
-<!-- ==========================================
-       VIDEO TESTIMONIALS (WITH MODAL PLAYER)
-=========================================== -->
-
-
-
-
-
-
-
-
-<style>
-
-/* GRID LAYOUT */
-
-.testimonials-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:40px;
-}
-
-/* CARD */
-
-.testimonial-card{
-background:rgba(255,255,255,0.06);
-border-radius:18px;
-overflow:hidden;
-cursor:pointer;
-transition:transform .35s ease, box-shadow .35s ease;
-position:relative;
-}
-
-.testimonial-card:hover{
-transform:translateY(-8px);
-box-shadow:0 25px 50px rgba(0,0,0,0.25);
-}
-
-/* THUMBNAIL */
-
-.video-thumb{
-position:relative;
-width:100%;
-height:0;
-padding-bottom:56.25%;
-overflow:hidden;
-}
-
-.video-thumb img{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* PLAY BUTTON */
-
-.play-button{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:70px;
-height:70px;
-border-radius:50%;
-background:rgba(0,0,0,0.65);
-display:flex;
-align-items:center;
-justify-content:center;
-transition:all .3s ease;
-}
-
-.play-button:after{
-content:"▶";
-color:white;
-font-size:26px;
-margin-left:4px;
-}
-
-.testimonial-card:hover .play-button{
-background:var(--color-accent-soft);
-transform:translate(-50%,-50%) scale(1.1);
-}
-
-/* TEXT */
-
-.testimonial-info{
-padding:20px;
-}
-
-.testimonial-name{
-font-weight:600;
-margin-bottom:4px;
-}
-
-.testimonial-role{
-font-size:.9rem;
-opacity:.75;
-}
-
-/* MODAL */
-
-.video-modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-visibility:hidden;
-transition:all .3s ease;
-z-index:9999;
-}
-
-.video-modal.active{
-opacity:1;
-visibility:visible;
-}
-
-.modal-video{
-max-width:900px;
-width:90%;
-border-radius:12px;
-}
-
-.modal-close{
-position:absolute;
-top:30px;
-right:40px;
-font-size:30px;
-color:white;
-cursor:pointer;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.testimonials-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
-
-
-
-  
-
-<section class="testimonial section" aria-label="Community voices">
-
-
-  
-
-<div class="container">
-
-<div class="testimonial-section-header fade-in">
-<span class="section-label" style="color: var(--color-accent-soft);">Community Voices</span>
-<h2>What people are saying</h2>
-</div>
-
-<div class="testimonials-grid">
-
-
-<!-- CARD 1 -->
-
-<div class="testimonial-card" data-video="Testimonial1.mp4">
-
-<div class="video-thumb">
-<img src="thumbnail1.jpg" loading="lazy">
-<div class="play-button"></div>
-</div>
-
-<div class="testimonial-info">
-<div class="testimonial-name">Student at Dongriin Foundation</div>
-<div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
-</div>
-
-</div>
-
-
-<!-- CARD 2 -->
-
-<div class="testimonial-card" data-video="Testimonial2.mp4">
-
-<div class="video-thumb">
-<img src="thumbnail2.jpg" loading="lazy">
-<div class="play-button"></div>
-</div>
-
-<div class="testimonial-info">
-<div class="testimonial-name">Community Member, Northern Uganda</div>
-<div class="testimonial-role">Refugee settlement resident</div>
-</div>
-
-</div>
-
-
-<!-- CARD 3 -->
-
-<div class="testimonial-card" data-video="Testimonial3.mp4">
-
-<div class="video-thumb">
-<img src="thumbnail3.jpg" loading="lazy">
-<div class="play-button"></div>
-</div>
-
-<div class="testimonial-info">
-<div class="testimonial-name">Donor, Bright Minds Campaign</div>
-<div class="testimonial-role">Supporter from the diaspora</div>
-</div>
-
-</div>
-
-
-</div>
-</div>
-</section>
-
-
-
-<!-- VIDEO MODAL -->
-
-<div class="video-modal" id="videoModal">
-
-<span class="modal-close">&times;</span>
-
-<video class="modal-video" controls id="modalVideo">
-<source src="" type="video/mp4">
-</video>
-
-</div>
-
-
-
-
-  
-<script>
-
-const cards=document.querySelectorAll(".testimonial-card");
-const modal=document.getElementById("videoModal");
-const video=document.getElementById("modalVideo");
-const source=video.querySelector("source");
-const close=document.querySelector(".modal-close");
-
-cards.forEach(card=>{
-card.addEventListener("click",()=>{
-source.src=card.dataset.video;
-video.load();
-modal.classList.add("active");
-video.play();
-});
-});
-
-close.addEventListener("click",()=>{
-modal.classList.remove("active");
-video.pause();
-video.currentTime=0;
-});
-
-modal.addEventListener("click",(e)=>{
-if(e.target===modal){
-modal.classList.remove("active");
-video.pause();
-video.currentTime=0;
-}
-});
-
-</script>
-
-  
-
-  
-
-    /* ============================================
-       SUPPORT / DONATE SECTION
-    ============================================ */
-    .support {
-      background: var(--color-bg);
-    }
-
-    .support-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .support-inner h2 {
-      margin-bottom: 20px;
-    }
-
-    .support-inner h2 em {
-      font-style: italic;
-      color: var(--color-accent);
-    }
-
-    .support-inner > p {
-      margin-bottom: 36px;
-    }
-
-    .support-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .support-share {
-      margin-top: 40px;
-      padding: 28px 32px;
-      background: var(--color-accent-pale);
-      border-radius: var(--radius-md);
-    }
-
-    .support-share p {
-      font-size: 0.95rem;
-      color: var(--color-accent-dark);
-      margin: 0;
-    }
-
-    /* ============================================
-       MOBILE RESPONSIVE
-    ============================================ */
-    @media (max-width: 960px) {
-      .nav-links,
-      .nav-cta .btn {
-        display: none;
-      }
-
-      .nav-hamburger {
-        display: flex;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-visual {
-        justify-content: center;
-      }
-
-      .hero-image {
-        max-width: 360px;
-        height: 260px;
-        margin: 0 auto;
-      }
-
-      .project-detail-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .mission-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .mission-left {
-        position: static;
-      }
-
-      .impact-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .team-partner-card {
-        grid-template-columns: 1fr;
-      }
-
-      .team-partner-photo {
-        height: 140px;
-        border-right: none;
-        border-bottom: 1px solid var(--color-border);
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .project-images {
-        grid-template-columns: 1fr;
-      }
-
-      .project-images .photo-placeholder--light:first-child {
-        grid-column: 1;
-      }
-
-      #sticky-donate {
-        bottom: 16px;
-        right: 16px;
-      }
-
-      .impact-stat {
-        padding: 48px 32px;
-      }
-
-      .support-share {
-        padding: 24px 20px;
-      }
-
-      .video-wrapper {
-        max-width: 280px;
-      }
-
-      .bright-minds-photos {
-        grid-template-columns: 1fr;
-      }
-
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- STICKY DONATE BUTTON -->
-  <div id="sticky-donate" aria-label="Quick donate for Bright Solar Futures">
-    <a href="#donate" class="btn btn-primary">Support Bright Fields</a>
-  </div>
-
   <!-- ==========================================
        NAVIGATION
   =========================================== -->
@@ -1940,6 +1495,286 @@ Anyieth is the co-founder of Bright Solar Futures. Growing up with firsthand kno
       </div>
     </div>
   </section>
+
+
+
+<!-- ==========================================
+       VIDEO TESTIMONIALS (WITH MODAL PLAYER)
+=========================================== -->
+
+<style>
+
+/* GRID LAYOUT */
+
+.testimonials-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-top:40px;
+}
+
+/* CARD */
+
+.testimonial-card{
+background:rgba(255,255,255,0.06);
+border-radius:18px;
+overflow:hidden;
+cursor:pointer;
+transition:transform .35s ease, box-shadow .35s ease;
+position:relative;
+}
+
+.testimonial-card:hover{
+transform:translateY(-8px);
+box-shadow:0 25px 50px rgba(0,0,0,0.25);
+}
+
+/* THUMBNAIL */
+
+.video-thumb{
+position:relative;
+width:100%;
+height:0;
+padding-bottom:56.25%;
+overflow:hidden;
+}
+
+.video-thumb img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* PLAY BUTTON */
+
+.play-button{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:70px;
+height:70px;
+border-radius:50%;
+background:rgba(0,0,0,0.65);
+display:flex;
+align-items:center;
+justify-content:center;
+transition:all .3s ease;
+}
+
+.play-button:after{
+content:"▶";
+color:white;
+font-size:26px;
+margin-left:4px;
+}
+
+.testimonial-card:hover .play-button{
+background:var(--color-accent-soft);
+transform:translate(-50%,-50%) scale(1.1);
+}
+
+/* TEXT */
+
+.testimonial-info{
+padding:20px;
+}
+
+.testimonial-name{
+font-weight:600;
+margin-bottom:4px;
+}
+
+.testimonial-role{
+font-size:.9rem;
+opacity:.75;
+}
+
+/* MODAL */
+
+.video-modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+visibility:hidden;
+transition:all .3s ease;
+z-index:9999;
+}
+
+.video-modal.active{
+opacity:1;
+visibility:visible;
+}
+
+.modal-video{
+max-width:900px;
+width:90%;
+border-radius:12px;
+}
+
+.modal-close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:30px;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.testimonials-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+
+
+  
+
+<section class="testimonial section" aria-label="Community voices">
+
+
+  
+
+<div class="container">
+
+<div class="testimonial-section-header fade-in">
+<span class="section-label" style="color: var(--color-accent-soft);">Community Voices</span>
+<h2>What people are saying</h2>
+</div>
+
+<div class="testimonials-grid">
+
+
+<!-- CARD 1 -->
+
+<div class="testimonial-card" data-video="Testimonial1.mp4">
+
+<div class="video-thumb">
+<img src="thumbnail1.jpg" loading="lazy">
+<div class="play-button"></div>
+</div>
+
+<div class="testimonial-info">
+<div class="testimonial-name">Student at Dongriin Foundation</div>
+<div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
+</div>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="testimonial-card" data-video="Testimonial2.mp4">
+
+<div class="video-thumb">
+<img src="thumbnail2.jpg" loading="lazy">
+<div class="play-button"></div>
+</div>
+
+<div class="testimonial-info">
+<div class="testimonial-name">Community Member, Northern Uganda</div>
+<div class="testimonial-role">Refugee settlement resident</div>
+</div>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="testimonial-card" data-video="Testimonial3.mp4">
+
+<div class="video-thumb">
+<img src="thumbnail3.jpg" loading="lazy">
+<div class="play-button"></div>
+</div>
+
+<div class="testimonial-info">
+<div class="testimonial-name">Donor, Bright Minds Campaign</div>
+<div class="testimonial-role">Supporter from the diaspora</div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+
+<!-- VIDEO MODAL -->
+
+<div class="video-modal" id="videoModal">
+
+<span class="modal-close">&times;</span>
+
+<video class="modal-video" controls id="modalVideo">
+<source src="" type="video/mp4">
+</video>
+
+</div>
+
+
+
+
+  
+<script>
+
+const cards=document.querySelectorAll(".testimonial-card");
+const modal=document.getElementById("videoModal");
+const video=document.getElementById("modalVideo");
+const source=video.querySelector("source");
+const close=document.querySelector(".modal-close");
+
+cards.forEach(card=>{
+card.addEventListener("click",()=>{
+source.src=card.dataset.video;
+video.load();
+modal.classList.add("active");
+video.play();
+});
+});
+
+close.addEventListener("click",()=>{
+modal.classList.remove("active");
+video.pause();
+video.currentTime=0;
+});
+
+modal.addEventListener("click",(e)=>{
+if(e.target===modal){
+modal.classList.remove("active");
+video.pause();
+video.currentTime=0;
+}
+});
+
+</script>
+
+  
+
+  
+
+
+
+
+  
 
   <!-- ==========================================
        SUPPORT / DONATE
