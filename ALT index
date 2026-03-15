@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bright Solar Futures</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------------- BASE ---------------- */
+
+body{
+margin:0;
+font-family:'Plus Jakarta Sans',sans-serif;
+background:#FBF7F0;
+color:#2D2A26;
+line-height:1.6;
+}
+
+h1,h2,h3{
+font-family:'Lora',serif;
+margin:0 0 10px;
+}
+
+section{
+padding:80px 20px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+background:linear-gradient(155deg,#3D2B1F,#C4622D);
+color:white;
+padding:120px 20px;
+text-align:center;
+}
+
+.hero img{
+max-width:420px;
+width:100%;
+border-radius:16px;
+margin-top:40px;
+}
+
+/* ---------------- BUTTON ---------------- */
+
+.btn{
+display:inline-block;
+background:#C4622D;
+color:white;
+padding:14px 28px;
+border-radius:999px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* ---------------- TEAM ---------------- */
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
+margin-top:40px;
+}
+
+.team-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.team-card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.team-card-body{
+padding:18px;
+}
+
+.team-role{
+font-size:0.8rem;
+color:#C4622D;
+font-weight:600;
+}
+
+/* ---------------- PROJECT PHOTOS ---------------- */
+
+.photo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.photo-grid img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:16px;
+}
+
+/* ---------------- VIDEO TESTIMONIALS ---------------- */
+
+.testimonials-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.testimonial-card{
+background:white;
+border-radius:16px;
+overflow:hidden;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.video-thumb{
+position:relative;
+padding-bottom:56%;
+}
+
+.video-thumb img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.play-button{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:60px;
+height:60px;
+background:rgba(0,0,0,.7);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:22px;
+}
+
+.testimonial-info{
+padding:16px;
+}
+
+/* ---------------- VIDEO MODAL ---------------- */
+
+.video-modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+}
+
+.video-modal.active{
+opacity:1;
+visibility:visible;
+}
+
+.modal-video{
+width:90%;
+max-width:900px;
+}
+
+.modal-close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:32px;
+color:white;
+cursor:pointer;
+}
+
+/* ---------------- IMPACT ---------------- */
+
+.impact{
+background:#2D2A26;
+color:white;
+text-align:center;
+}
+
+.impact-number{
+font-size:3rem;
+color:#E8A882;
+font-weight:700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Clean Energy for Refugee Communities</h1>
+
+<p>
+We support refugee-led initiatives in Northern Uganda by funding solar
+energy, digital access, and food security projects.
+</p>
+
+<a class="btn">Support Bright Fields</a>
+
+<img src="uganda-solar-water.jpg">
+
+</div>
+
+</section>
+
+<!-- CURRENT PROJECT -->
+
+<section>
+
+<div class="container">
+
+<h2>Bright Fields</h2>
+
+<p>
+Solar-powered water pumps to enable year-round irrigation and food
+security in refugee communities.
+</p>
+
+</div>
+
+</section>
+
+<!-- TEAM -->
+
+<section>
+
+<div class="container">
+
+<h2>Our Team</h2>
+
+<div class="team-grid">
+
+<div class="team-card">
+<img src="anyieth.jpg">
+<div class="team-card-body">
+<h3>Anyieth Philip Ayuen</h3>
+<div class="team-role">Co-Founder</div>
+</div>
+</div>
+
+<div class="team-card">
+<img src="nicole.jpg">
+<div class="team-card-body">
+<h3>Nicole Beremovica</h3>
+<div class="team-role">Co-Founder</div>
+</div>
+</div>
+
+<div class="team-card">
+<img src="taylor.jpg">
+<div class="team-card-body">
+<h3>Taylor Ko</h3>
+<div class="team-role">Sustainability Specialist</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COMPLETED PROJECT -->
+
+<section>
+
+<div class="container">
+
+<h2>Bright Minds, Bright Lights</h2>
+
+<div class="photo-grid">
+
+<img src="solar-installation-01.jpg">
+<img src="installation-02.jpg">
+<img src="installation-office.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+
+<section>
+
+<div class="container">
+
+<h2>Community Voices</h2>
+
+<div class="testimonials-grid">
+
+<div class="testimonial-card" data-video="testimonial1.mp4">
+
+<div class="video-thumb">
+<img src="thumbnail1.jpg">
+<div class="play-button">▶</div>
+</div>
+
+<div class="testimonial-info">
+<strong>Student at Dongriin Foundation</strong>
+<div>Bright Minds beneficiary</div>
+</div>
+
+</div>
+
+<div class="testimonial-card" data-video="testimonial2.mp4">
+
+<div class="video-thumb">
+<img src="thumbnail2.jpg">
+<div class="play-button">▶</div>
+</div>
+
+<div class="testimonial-info">
+<strong>Community Member</strong>
+<div>Northern Uganda</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- IMPACT -->
+
+<section class="impact">
+
+<div class="container">
+
+<div class="impact-number">$1,606</div>
+
+<p>Raised from 52 donors for Bright Minds</p>
+
+</div>
+
+</section>
+
+<!-- VIDEO MODAL -->
+
+<div class="video-modal" id="videoModal">
+
+<div class="modal-close">&times;</div>
+
+<video class="modal-video" controls id="modalVideo">
+<source src="">
+</video>
+
+</div>
+
+<script>
+
+const cards=document.querySelectorAll(".testimonial-card")
+const modal=document.getElementById("videoModal")
+const video=document.getElementById("modalVideo")
+const source=video.querySelector("source")
+const close=document.querySelector(".modal-close")
+
+cards.forEach(card=>{
+card.addEventListener("click",()=>{
+source.src=card.dataset.video
+video.load()
+modal.classList.add("active")
+video.play()
+})
+})
+
+close.onclick=()=>{
+modal.classList.remove("active")
+video.pause()
+}
+
+modal.onclick=e=>{
+if(e.target===modal){
+modal.classList.remove("active")
+video.pause()
+}
+}
+
+</script>
+
+</body>
+</html>
