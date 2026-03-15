@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,11 +12,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------------- BASE ---------------- */
+/* -------------------- BASE -------------------- */
 
 body{
 margin:0;
@@ -27,7 +28,7 @@ line-height:1.6;
 
 h1,h2,h3{
 font-family:'Lora',serif;
-margin:0 0 10px;
+margin-bottom:10px;
 }
 
 section{
@@ -39,23 +40,50 @@ max-width:1100px;
 margin:auto;
 }
 
-/* ---------------- HERO ---------------- */
+/* -------------------- NAV -------------------- */
+
+.nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+padding:16px;
+z-index:1000;
+}
+
+.nav-inner{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* -------------------- HERO -------------------- */
 
 .hero{
 background:linear-gradient(155deg,#3D2B1F,#C4622D);
 color:white;
-padding:120px 20px;
+padding:140px 20px 100px;
 text-align:center;
 }
 
 .hero img{
 max-width:420px;
 width:100%;
-border-radius:16px;
 margin-top:40px;
+border-radius:16px;
 }
 
-/* ---------------- BUTTON ---------------- */
+/* -------------------- BUTTON -------------------- */
 
 .btn{
 display:inline-block;
@@ -65,9 +93,16 @@ padding:14px 28px;
 border-radius:999px;
 text-decoration:none;
 font-weight:600;
+margin-top:20px;
 }
 
-/* ---------------- TEAM ---------------- */
+/* -------------------- PROJECT -------------------- */
+
+.project{
+background:#F5EDE0;
+}
+
+/* -------------------- TEAM -------------------- */
 
 .team-grid{
 display:grid;
@@ -78,9 +113,9 @@ margin-top:40px;
 
 .team-card{
 background:white;
-border-radius:12px;
+border-radius:14px;
 overflow:hidden;
-box-shadow:0 4px 20px rgba(0,0,0,0.08);
+box-shadow:0 6px 24px rgba(0,0,0,0.08);
 }
 
 .team-card img{
@@ -89,22 +124,23 @@ height:240px;
 object-fit:cover;
 }
 
-.team-card-body{
+.team-body{
 padding:18px;
 }
 
 .team-role{
-font-size:0.8rem;
+font-size:.8rem;
 color:#C4622D;
 font-weight:600;
+margin-bottom:10px;
 }
 
-/* ---------------- PROJECT PHOTOS ---------------- */
+/* -------------------- PHOTO GRID -------------------- */
 
 .photo-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+gap:24px;
 margin-top:40px;
 }
 
@@ -115,7 +151,21 @@ object-fit:cover;
 border-radius:16px;
 }
 
-/* ---------------- VIDEO TESTIMONIALS ---------------- */
+/* -------------------- IMPACT -------------------- */
+
+.impact{
+background:#2D2A26;
+color:white;
+text-align:center;
+}
+
+.impact-number{
+font-size:3rem;
+color:#E8A882;
+font-weight:700;
+}
+
+/* -------------------- VIDEO TESTIMONIALS -------------------- */
 
 .testimonials-grid{
 display:grid;
@@ -129,7 +179,7 @@ background:white;
 border-radius:16px;
 overflow:hidden;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .video-thumb{
@@ -151,8 +201,8 @@ left:50%;
 transform:translate(-50%,-50%);
 width:60px;
 height:60px;
-background:rgba(0,0,0,.7);
 border-radius:50%;
+background:rgba(0,0,0,.7);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -164,7 +214,7 @@ font-size:22px;
 padding:16px;
 }
 
-/* ---------------- VIDEO MODAL ---------------- */
+/* -------------------- VIDEO MODAL -------------------- */
 
 .video-modal{
 position:fixed;
@@ -200,25 +250,30 @@ color:white;
 cursor:pointer;
 }
 
-/* ---------------- IMPACT ---------------- */
-
-.impact{
-background:#2D2A26;
-color:white;
-text-align:center;
-}
-
-.impact-number{
-font-size:3rem;
-color:#E8A882;
-font-weight:700;
-}
-
 </style>
 
 </head>
 
 <body>
+
+<!-- NAV -->
+
+<nav class="nav">
+
+<div class="nav-inner">
+
+<div>Bright Solar Futures</div>
+
+<div>
+<a href="#project">Bright Fields</a>
+<a href="#team">Team</a>
+<a href="#impact">Impact</a>
+<a href="#donate">Donate</a>
+</div>
+
+</div>
+
+</nav>
 
 <!-- HERO -->
 
@@ -229,29 +284,29 @@ font-weight:700;
 <h1>Clean Energy for Refugee Communities</h1>
 
 <p>
-We support refugee-led initiatives in Northern Uganda by funding solar
-energy, digital access, and food security projects.
+We support refugee-led initiatives in Northern Uganda through solar energy,
+digital access, and food security infrastructure.
 </p>
 
 <a class="btn">Support Bright Fields</a>
 
-<img src="uganda-solar-water.jpg">
+<img src="Uganda solar water.jpg">
 
 </div>
 
 </section>
 
-<!-- CURRENT PROJECT -->
+<!-- PROJECT -->
 
-<section>
+<section id="project" class="project">
 
 <div class="container">
 
 <h2>Bright Fields</h2>
 
 <p>
-Solar-powered water pumps to enable year-round irrigation and food
-security in refugee communities.
+Solar powered irrigation pumps bringing year-round food security
+to refugee communities.
 </p>
 
 </div>
@@ -260,7 +315,7 @@ security in refugee communities.
 
 <!-- TEAM -->
 
-<section>
+<section id="team">
 
 <div class="container">
 
@@ -269,26 +324,29 @@ security in refugee communities.
 <div class="team-grid">
 
 <div class="team-card">
-<img src="anyieth.jpg">
-<div class="team-card-body">
+<img src="Anyieth Photo.jpeg">
+<div class="team-body">
 <h3>Anyieth Philip Ayuen</h3>
 <div class="team-role">Co-Founder</div>
+<p>Founder of the Dongriin Foundation and climate student working on refugee-led development.</p>
 </div>
 </div>
 
 <div class="team-card">
-<img src="nicole.jpg">
-<div class="team-card-body">
+<img src="Nicole.JPG">
+<div class="team-body">
 <h3>Nicole Beremovica</h3>
 <div class="team-role">Co-Founder</div>
+<p>Focused on climate justice and scaling community-led energy solutions.</p>
 </div>
 </div>
 
 <div class="team-card">
-<img src="taylor.jpg">
-<div class="team-card-body">
+<img src="taylor photo.jpeg">
+<div class="team-body">
 <h3>Taylor Ko</h3>
 <div class="team-role">Sustainability Specialist</div>
+<p>Works on project sustainability and environmental planning.</p>
 </div>
 </div>
 
@@ -298,7 +356,21 @@ security in refugee communities.
 
 </section>
 
-<!-- COMPLETED PROJECT -->
+<!-- IMPACT -->
+
+<section id="impact" class="impact">
+
+<div class="container">
+
+<div class="impact-number">$1,606</div>
+
+<p>Raised from 52 donors for Bright Minds</p>
+
+</div>
+
+</section>
+
+<!-- BRIGHT MINDS PHOTOS -->
 
 <section>
 
@@ -308,9 +380,9 @@ security in refugee communities.
 
 <div class="photo-grid">
 
-<img src="solar-installation-01.jpg">
-<img src="installation-02.jpg">
-<img src="installation-office.jpg">
+<img src="Solar installation -01.jpg">
+<img src="Installation -Photo 002.jpg">
+<img src="Wiring and installation - office.jpg">
 
 </div>
 
@@ -318,7 +390,7 @@ security in refugee communities.
 
 </section>
 
-<!-- VIDEO TESTIMONIALS -->
+<!-- COMMUNITY VOICES -->
 
 <section>
 
@@ -328,7 +400,7 @@ security in refugee communities.
 
 <div class="testimonials-grid">
 
-<div class="testimonial-card" data-video="testimonial1.mp4">
+<div class="testimonial-card" data-video="Testimonial1.mp4">
 
 <div class="video-thumb">
 <img src="thumbnail1.jpg">
@@ -342,7 +414,7 @@ security in refugee communities.
 
 </div>
 
-<div class="testimonial-card" data-video="testimonial2.mp4">
+<div class="testimonial-card" data-video="Testimonial2.mp4">
 
 <div class="video-thumb">
 <img src="thumbnail2.jpg">
@@ -362,15 +434,20 @@ security in refugee communities.
 
 </section>
 
-<!-- IMPACT -->
+<!-- DONATE -->
 
-<section class="impact">
+<section id="donate">
 
 <div class="container">
 
-<div class="impact-number">$1,606</div>
+<h2>Support Bright Fields</h2>
 
-<p>Raised from 52 donors for Bright Minds</p>
+<p>
+Your support helps install solar irrigation systems and expand access
+to electricity in refugee communities.
+</p>
+
+<a class="btn">Donate</a>
 
 </div>
 
@@ -421,4 +498,3 @@ video.pause()
 
 </body>
 </html>
-
