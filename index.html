@@ -1345,6 +1345,144 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* -------------------- VIDEO TESTIMONIALS -------------------- */
+.testimonial-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+}
+.video-thumb {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-thumb img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition);
+}
+.testimonial-card:hover .video-thumb img {
+  transform: scale(1.04);
+}
+.video-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(45,18,6,0.55) 0%, transparent 60%);
+  pointer-events: none;
+}
+.play-button {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(196, 98, 45, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: background var(--transition), transform var(--transition);
+}
+.testimonial-card:hover .play-button {
+  background: var(--color-accent);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.play-icon {
+  width: 20px; height: 20px;
+  margin-left: 3px;
+  fill: white;
+}
+.testimonial-info { padding: 20px 22px 24px; }
+.testimonial-info-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 4px;
+}
+.testimonial-info-role {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.testimonial-info-quote {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
+}
+
+/* -------------------- VIDEO MODAL -------------------- */
+.video-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(20, 10, 5, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-inner {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+}
+.modal-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+.modal-video iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+.modal-close {
+  position: absolute;
+  top: -48px; right: 0;
+  font-size: 28px;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color var(--transition);
+}
+.modal-close:hover { color: var(--color-accent-soft); }
+```
+
+    
   </style>
 </head>
 
@@ -1675,73 +1813,78 @@
   </section>
 
   <!-- ==========================================
-       TESTIMONIALS
+       Video TESTIMONIALS
   =========================================== -->
-  <section class="testimonial section" aria-label="Community voices">
-    <div class="testimonial-bg-text" aria-hidden="true">Hope</div>
 
-    <div class="container">
-      <div class="testimonial-section-header fade-in">
-        <span class="section-label" style="color: var(--color-accent-soft);">Community Voices</span>
-        <h2>What people are saying</h2>
-      </div>
-
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card fade-in">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote>
-            <p class="testimonial-text">
-              Before the solar panels, we could only study when there was daylight. Now the learning center is open in the evenings too, and I can take online courses. It changed what I believe is possible for my future.
-            </p>
-            <footer class="testimonial-attribution">
-              <div class="testimonial-avatar" aria-hidden="true">&#x1F393;</div>
-              <div>
-                <div class="testimonial-name">Student at Dongriin Foundation</div>
-                <div class="testimonial-role">Bright Minds, Bright Lights beneficiary</div>
-                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-
-        <div class="testimonial-card fade-in fade-in-delay-2">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote>
-            <p class="testimonial-text">
-              This is what community-led change looks like. The people who understand our needs are the ones building the solutions. Solar energy here means our children have a real shot at the future.
-            </p>
-            <footer class="testimonial-attribution">
-              <div class="testimonial-avatar" aria-hidden="true">&#x1F331;</div>
-              <div>
-                <div class="testimonial-name">Community Member, Northern Uganda</div>
-                <div class="testimonial-role">Refugee settlement resident</div>
-                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-
-        <div class="testimonial-card fade-in fade-in-delay-4">
-          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote>
-            <p class="testimonial-text">
-              Donating felt different because I knew the project came from inside the community itself. These aren't outsiders deciding what's needed — this is the community building its own future.
-            </p>
-            <footer class="testimonial-attribution">
-              <div class="testimonial-avatar" aria-hidden="true">&#x2764;</div>
-              <div>
-                <div class="testimonial-name">Donor, Bright Minds Campaign</div>
-                <div class="testimonial-role">Supporter from the diaspora</div>
-                <span class="placeholder-note">Placeholder — real testimonial to be added</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-
-      </div>
+  <!-- VIDEO TESTIMONIALS -->
+<section class="testimonial section" aria-label="Community voices">
+  <div class="testimonial-bg-text" aria-hidden="true">Hope</div>
+  <div class="container">
+    <div class="testimonial-section-header fade-in">
+      <span class="section-label" style="color: var(--color-accent-soft);">Community Voices</span>
+      <h2>What people are saying</h2>
+      <p style="color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto;">Hear directly from students, community members, and supporters whose lives this work touches.</p>
     </div>
-  </section>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card fade-in" data-video-id="YOUTUBE_VIDEO_ID_1" role="button" tabindex="0" aria-label="Play testimonial video">
+        <div class="video-thumb">
+          <img src="Solar installation -01.jpg" alt="Testimonial thumbnail" />
+          <div class="play-button" aria-hidden="true">
+            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <div class="testimonial-info-name">Student at Dongriin Foundation</div>
+          <div class="testimonial-info-role">Bright Minds, Bright Lights beneficiary</div>
+          <p class="testimonial-info-quote">"Before the solar panels, we could only study when there was daylight. Now I can take online courses in the evenings."</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-2" data-video-id="YOUTUBE_VIDEO_ID_2" role="button" tabindex="0" aria-label="Play testimonial video">
+        <div class="video-thumb">
+          <img src="Installation -Photo 002.jpg" alt="Testimonial thumbnail" />
+          <div class="play-button" aria-hidden="true">
+            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <div class="testimonial-info-name">Community Member, Northern Uganda</div>
+          <div class="testimonial-info-role">Refugee settlement resident</div>
+          <p class="testimonial-info-quote">"Solar energy here means our children have a real shot at the future. This is what community-led change looks like."</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-4" data-video-id="YOUTUBE_VIDEO_ID_3" role="button" tabindex="0" aria-label="Play testimonial video">
+        <div class="video-thumb">
+          <img src="Wiring and installation - office.jpg" alt="Testimonial thumbnail" />
+          <div class="play-button" aria-hidden="true">
+            <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <div class="testimonial-info-name">Donor, Bright Minds Campaign</div>
+          <div class="testimonial-info-role">Supporter from the diaspora</div>
+          <p class="testimonial-info-quote">"Donating felt different because the project came from inside the community itself."</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL (place immediately after the section above) -->
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video testimonial">
+  <div class="modal-inner">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close video">&times;</button>
+    <div class="modal-video">
+      <iframe id="modal-iframe" src="" title="Community testimonial video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
   <!-- ==========================================
        SUPPORT / DONATE
@@ -1902,6 +2045,50 @@
         });
       });
     })();
+
+    // =============================================
+// VIDEO TESTIMONIAL MODAL
+// =============================================
+(function () {
+  var modal = document.getElementById('video-modal');
+  var iframe = document.getElementById('modal-iframe');
+  var closeBtn = document.getElementById('modal-close-btn');
+
+  function openModal(videoId) {
+    if (!videoId || videoId.indexOf('YOUTUBE_VIDEO_ID') === 0) return;
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.testimonial-card[data-video-id]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      openModal(card.getAttribute('data-video-id'));
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card.getAttribute('data-video-id'));
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+})();
+    
   </script>
 
 </body>
